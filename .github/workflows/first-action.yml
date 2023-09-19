@@ -1,8 +1,16 @@
-name: first action
+name: Test React App
 on: workflow_dispatch
 jobs:
-  first-job:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Print step
-       run: echo"hello world !"
+      - name: Code
+        uses: actions/checkout@v3
+      - name: Install Node v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install
+        run: npm install
+      - name: Test 
+        run: npm run test
