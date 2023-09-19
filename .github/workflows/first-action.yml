@@ -5,5 +5,5 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      -name: Print step
-      run: echo"hello world !"
+      - name: Print step
+       run: echo"hello world !"
