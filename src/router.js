@@ -7,6 +7,9 @@ const Profile = () => import("./components/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
 const BoardModerator = () => import("./components/BoardModerator.vue")
 const BoardUser = () => import("./components/BoardUser.vue")
+const Videos = () => import("./pages/Videos.vue")
+const Player = () => import("./components/Player.vue")
+const Rooms = () => import("./pages/Rooms.vue")
 
 const routes = [
   {
@@ -49,6 +52,30 @@ const routes = [
     name: "user",
     // lazy-loaded
     component: BoardUser,
+  },
+  {
+    path: "/videos",
+    name: "videos",
+    // lazy-loaded
+    component: Videos,
+  },
+  {
+    path: "/player/:id",
+    name: "player",
+    // lazy-loaded
+    component: Player,
+  },
+  {
+    path: "/player/:id/caption",
+    name: "playerCaption",
+    // lazy-loaded
+    component: Player,
+  },
+  {
+    path: "/rooms",
+    name: "rooms",
+    // lazy-loaded
+    component: Rooms,
   },
 ];
 

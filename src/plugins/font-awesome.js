@@ -6,8 +6,10 @@ import {
   faUserPlus,
   faSignInAlt,
   faSignOutAlt,
+  faVideo,
+  faPastafarianism,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
+library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt, faVideo, faPastafarianism);
 
 export { FontAwesomeIcon };

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href="/" class="navbar-brand">bezKoder</a>
+      <a href="/" class="navbar-brand">Clouder</a>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link to="/home" class="nav-link">
@@ -34,6 +34,18 @@
 
       <div v-if="currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
+          <router-link to="/videos" class="nav-link">
+            <font-awesome-icon icon="video" />
+            videos
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/rooms" class="nav-link">
+            <font-awesome-icon icon="pastafarianism" />
+            rooms
+          </router-link>
+        </li>
+        <li class="nav-item">
           <router-link to="/profile" class="nav-link">
             <font-awesome-icon icon="user" />
             {{ currentUser.username }}
@@ -54,6 +66,7 @@
 </template>
 
 <script>
+import SocketioService from './services/socketio.service.js';
 export default {
   computed: {
     currentUser() {
@@ -73,6 +86,13 @@ export default {
 
       return false;
     }
+  },
+  created(){
+    console.log(process.env.VUE_APP_SOCKET_ENDPOINT)
+    SocketioService.setupSocketConnection();
+  },
+  beforeUnmount(){
+    SocketioService.disconnect();
   },
   methods: {
     logOut() {
