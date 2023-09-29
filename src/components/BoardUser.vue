@@ -1,16 +1,19 @@
 <template>
   <div class="container">
     <header class="jumbotron">
-      <h3>{{ content }}</h3>
+      <BaseHeadline :headlineLevel="3" :title="content"></BaseHeadline>
     </header>
   </div>
 </template>
 
 <script>
 import UserService from "../services/user.service";
-
+// import Headline from "./BaseHeadline.vue";
 export default {
   name: "User",
+  // components: {
+  //   Headline,
+  // },
   data() {
     return {
       content: "",

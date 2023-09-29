@@ -26,6 +26,7 @@
 </template>
 
 <script>
+// import Headline from './BaseHeadline.vue';
 export default {
     props:['videoList'],
 }

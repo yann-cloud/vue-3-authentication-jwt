@@ -32,6 +32,7 @@ export default {
     },
     },
     created() {
+      this.videos = this.video;
         if (this.loggedIn) {
         this.getMoovies();
         console.log("store videos", this.$store.state.videos.video)

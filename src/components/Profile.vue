@@ -1,9 +1,8 @@
 <template>
   <div class="container">
     <header class="jumbotron">
-      <h3>
-        <strong>{{currentUser.username}}</strong> Profile
-      </h3>
+      <BaseHeadline :headlineLevel="3" :title="currentUser.username"></BaseHeadline>
+      
     </header>
     <p>
       <strong>Token:</strong>
@@ -25,8 +24,12 @@
 </template>
 
 <script>
+// import Headline from './BaseHeadline.vue';
 export default {
   name: 'Profile',
+  // components: {
+  //   Headline
+  // },
   computed: {
     currentUser() {
       return this.$store.state.auth.user;

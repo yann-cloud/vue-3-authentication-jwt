@@ -5,6 +5,7 @@
         id="profile-img"
         src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
         class="profile-img-card"
+        alt="profile-img"
       />
       <Form @submit="handleLogin" :validation-schema="schema">
         <div class="form-group">
@@ -18,8 +19,8 @@
           <ErrorMessage name="password" class="error-feedback" />
         </div>
 
-        <div class="form-group">
-          <button class="btn btn-primary btn-block" :disabled="loading">
+        <div @keydown.esc="focusTriggerBtn" class="form-group">
+          <button ref="triggerBtn" class="btn btn-primary btn-block" :disabled="loading">
             <span
               v-show="loading"
               class="spinner-border spinner-border-sm"
@@ -91,6 +92,9 @@ export default {
         }
       );
     },
+    focusTriggerBtn() {
+      this.$refs.triggerBtn.focus();
+    }
   },
 };
 </script>

@@ -1,15 +1,10 @@
 <template>
-  <!-- <div class="container">
-    <header class="jumbotron">
-      <h3>{{ content }}</h3>
-    </header>
-  </div> -->
   <div id="home">
     <div class="banner">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="title">Cod<span>'Flix</span></h1>
+                    <BaseHeadline class="title" :headlineLevel="'1'" :title="'CodFlix'"></BaseHeadline>
                     <p>
                         <strong>{{content}}</strong>
                     </p>
@@ -26,9 +21,13 @@
 
 <script>
 import UserService from "../services/user.service";
+// import Headline from "./BaseHeadline.vue";
 
 export default {
   name: "Home",
+  // components: {
+  //   Headline: Headline
+  // },
   data() {
     return {
       content: "",
@@ -67,7 +66,7 @@ export default {
     margin-top: 10%;
 }
 #home .banner .title span {
-  color: var(--color-red) !important;
+  color: var(--color-red);
 }
 #home .banner .title + p {
     color: #fff;
