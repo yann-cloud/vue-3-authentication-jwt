@@ -5,10 +5,15 @@
             <track label="English" kind="captions" srcLang="en" :src="`http://localhost:5000/videos/video/${vidName}/caption`" default>
         </video>
     </div>
+    <Rooms />
 </template>
 
 <script>
+import Rooms from '../pages/Rooms.vue';
 export default {
+components: {
+    Rooms
+},
  data() {
       return {
         vidName: ''
@@ -22,7 +27,7 @@ mounted(){
 <style scoped>
 .player{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     margin-top: 2em;
 }

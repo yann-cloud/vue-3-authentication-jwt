@@ -102,3 +102,8 @@ export default {
   }
 };
 </script>
+<style>
+.container {
+  display: flex;
+}
+</style>

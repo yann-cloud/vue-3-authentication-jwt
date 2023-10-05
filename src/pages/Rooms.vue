@@ -1,9 +1,10 @@
 <template>
   <div class="App">
     <form @submit.prevent="submitToken">
-      <input type="text" placeholder="Enter token" v-model="token" />
+      <input type="text" placeholder="Enter token" v-model="token" readonly/>
       <button type="submit">Submit</button>
     </form>
+    <h1>Let's Chat</h1>
     <div class="box">
       <div class="messages">
         <div v-for="user in messages" :key="user.id">
@@ -21,12 +22,6 @@
 
 <script>
 import SocketioService from '../services/socketio.service.js';
-
-// static data only for demo purposes, in real world scenario, this would be already stored on client
-const SENDER = {
-  id: "123",
-  name: "John Doe",
-};
 
 export default {
   name: 'App',
@@ -49,6 +44,10 @@ export default {
       });
     },
     submitMessage() {
+      const SENDER = {
+      id: this.$store.state.auth.user.id,
+      name: this.$store.state.auth.user.username,
+      };
       const CHAT_ROOM = "myRandomChatRoomId";
       const message = this.inputMessageText;
       SocketioService.sendMessage({message, roomName: CHAT_ROOM}, cb => {
@@ -65,7 +64,11 @@ export default {
   },
   beforeUnmount() {
     SocketioService.disconnect();
+  },
+  beforeMount() {
+    this.token = this.$store.state.auth.user.accessToken;
   }
+
 }
 </script>
 
